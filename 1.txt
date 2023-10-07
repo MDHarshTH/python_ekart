@@ -1,0 +1,120 @@
+Microsoft Windows [Version 10.0.22621.2283]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\HP\Desktop\Python\Django\django_crud_operation>virtualenv ekart_env
+created virtual environment CPython3.11.5.final.0-64 in 7111ms
+  creator CPython3Windows(dest=C:\Users\HP\Desktop\Python\Django\django_crud_operation\ekart_env, clear=False, no_vcs_ignore=False, global=False)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=C:\Users\HP\AppData\Local\pypa\virtualenv)
+    added seed packages: pip==23.2.1, setuptools==68.2.2, wheel==0.41.2
+  activators BashActivator,BatchActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+
+C:\Users\HP\Desktop\Python\Django\django_crud_operation>cd ekart_env
+
+C:\Users\HP\Desktop\Python\Django\django_crud_operation\ekart_env>cd scripts
+
+C:\Users\HP\Desktop\Python\Django\django_crud_operation\ekart_env\Scripts>activate
+
+(ekart_env) C:\Users\HP\Desktop\Python\Django\django_crud_operation\ekart_env\Scripts>pip install django
+Collecting django
+  Obtaining dependency information for django from https://files.pythonhosted.org/packages/b9/45/707dfc56f381222c1c798503546cb390934ab246fc45b5051ef66e31099c/Django-4.2.6-py3-none-any.whl.metadata
+  Downloading Django-4.2.6-py3-none-any.whl.metadata (4.1 kB)
+Collecting asgiref<4,>=3.6.0 (from django)
+  Obtaining dependency information for asgiref<4,>=3.6.0 from https://files.pythonhosted.org/packages/9b/80/b9051a4a07ad231558fcd8ffc89232711b4e618c15cb7a392a17384bbeef/asgiref-3.7.2-py3-none-any.whl.metadata
+  Using cached asgiref-3.7.2-py3-none-any.whl.metadata (9.2 kB)
+Collecting sqlparse>=0.3.1 (from django)
+  Using cached sqlparse-0.4.4-py3-none-any.whl (41 kB)
+Collecting tzdata (from django)
+  Using cached tzdata-2023.3-py2.py3-none-any.whl (341 kB)
+Downloading Django-4.2.6-py3-none-any.whl (8.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.0/8.0 MB 15.5 MB/s eta 0:00:00
+Using cached asgiref-3.7.2-py3-none-any.whl (24 kB)
+Installing collected packages: tzdata, sqlparse, asgiref, django
+Successfully installed asgiref-3.7.2 django-4.2.6 sqlparse-0.4.4 tzdata-2023.3
+
+(ekart_env) C:\Users\HP\Desktop\Python\Django\django_crud_operation\ekart_env\Scripts>cd ../..
+
+(ekart_env) C:\Users\HP\Desktop\Python\Django\django_crud_operation>dir
+ Volume in drive C is Windows
+ Volume Serial Number is E66B-AF96
+
+ Directory of C:\Users\HP\Desktop\Python\Django\django_crud_operation
+
+06-10-2023  13:27    <DIR>          .
+06-10-2023  13:26    <DIR>          ..
+06-10-2023  13:27    <DIR>          ekart_env
+               0 File(s)              0 bytes
+               3 Dir(s)  119,241,109,504 bytes free
+
+(ekart_env) C:\Users\HP\Desktop\Python\Django\django_crud_operation>git clone-b design https://github.com/MohammedRifadCyberSquare/eKart
+git: 'clone-b' is not a git command. See 'git --help'.
+
+(ekart_env) C:\Users\HP\Desktop\Python\Django\django_crud_operation>git clone -b design https://github.com/MohammedRifadCyberSquare/eKart
+Cloning into 'eKart'...
+remote: Enumerating objects: 799, done.
+remote: Counting objects: 100% (799/799), done.
+remote: Compressing objects: 100% (480/480), done.
+remote: Total 799 (delta 444), reused 638 (delta 285), pack-reused 0Receiving objects:  96% (768/799), 4.76 MiB | 3.15 MReceiving objects:  97% (776/799), 4.76 MiB | 3.15 MiB/s
+Receiving objects: 100% (799/799), 5.13 MiB | 3.32 MiB/s, done.
+Resolving deltas: 100% (444/444), done.
+
+(ekart_env) C:\Users\HP\Desktop\Python\Django\django_crud_operation>code ,
+
+(ekart_env) C:\Users\HP\Desktop\Python\Django\django_crud_operation>code .
+
+(ekart_env) C:\Users\HP\Desktop\Python\Django\django_crud_operation>pyhton manage.py runserver
+'pyhton' is not recognized as an internal or external command,
+operable program or batch file.
+
+(ekart_env) C:\Users\HP\Desktop\Python\Django\django_crud_operation>cd eKart
+
+(ekart_env) C:\Users\HP\Desktop\Python\Django\django_crud_operation\eKart>pip install -r requirements.txt
+Collecting distlib==0.3.6 (from -r requirements.txt (line 1))
+  Downloading distlib-0.3.6-py2.py3-none-any.whl (468 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 468.5/468.5 kB 1.3 MB/s eta 0:00:00
+Collecting filelock==3.12.2 (from -r requirements.txt (line 2))
+  Obtaining dependency information for filelock==3.12.2 from https://files.pythonhosted.org/packages/00/45/ec3407adf6f6b5bf867a4462b2b0af27597a26bd3cd6e2534cb6ab029938/filelock-3.12.2-py3-none-any.whl.metadata
+  Downloading filelock-3.12.2-py3-none-any.whl.metadata (2.7 kB)
+Collecting platformdirs==3.8.0 (from -r requirements.txt (line 3))
+  Obtaining dependency information for platformdirs==3.8.0 from https://files.pythonhosted.org/packages/e7/61/7fde5beff25a0dae6c2056203696169bd29188b6cedefff8ba6e7b54417b/platformdirs-3.8.0-py3-none-any.whl.metadata
+  Downloading platformdirs-3.8.0-py3-none-any.whl.metadata (11 kB)
+Collecting virtualenv==20.23.1 (from -r requirements.txt (line 4))
+  Obtaining dependency information for virtualenv==20.23.1 from https://files.pythonhosted.org/packages/2a/5b/f5ba6ec56448dc85abb75b97dc918a621a52d119ade29c8c1b7e916b0cd3/virtualenv-20.23.1-py3-none-any.whl.metadata
+  Downloading virtualenv-20.23.1-py3-none-any.whl.metadata (4.5 kB)
+Downloading filelock-3.12.2-py3-none-any.whl (10 kB)
+Downloading platformdirs-3.8.0-py3-none-any.whl (16 kB)
+Downloading virtualenv-20.23.1-py3-none-any.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 13.0 MB/s eta 0:00:00
+Installing collected packages: distlib, platformdirs, filelock, virtualenv
+Successfully installed distlib-0.3.6 filelock-3.12.2 platformdirs-3.8.0 virtualenv-20.23.1
+
+(ekart_env) C:\Users\HP\Desktop\Python\Django\django_crud_operation\eKart>python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+October 06, 2023 - 13:37:26
+Django version 4.2.6, using settings 'eKart.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+[06/Oct/2023 13:37:51] "GET / HTTP/1.1" 200 11274
+[06/Oct/2023 13:37:51] "GET /static/js/jquery-2.0.0.min.js HTTP/1.1" 200 83100
+[06/Oct/2023 13:37:52] "GET /static/css/ui.css HTTP/1.1" 200 25294
+[06/Oct/2023 13:37:52] "GET /static/images/logo.png HTTP/1.1" 200 5818
+[06/Oct/2023 13:37:52] "GET /static/images/banners/1.jpg HTTP/1.1" 200 27847
+[06/Oct/2023 13:37:52] "GET /static/images/items/2.jpg HTTP/1.1" 200 35165
+[06/Oct/2023 13:37:52] "GET /static/images/items/1.jpg HTTP/1.1" 200 37870
+[06/Oct/2023 13:37:52] "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 200 70972
+[06/Oct/2023 13:37:52] "GET /static/images/items/3.jpg HTTP/1.1" 200 49726
+[06/Oct/2023 13:37:52] "GET /static/js/script.js HTTP/1.1" 200 1634
+[06/Oct/2023 13:37:52] "GET /static/fonts/fontawesome/css/all.min.css HTTP/1.1" 200 55187
+[06/Oct/2023 13:37:52] "GET /static/css/bootstrap.css HTTP/1.1" 200 197261
+[06/Oct/2023 13:37:52] "GET /static/images/items/4.jpg HTTP/1.1" 200 28485
+[06/Oct/2023 13:37:52] "GET /static/images/items/5.jpg HTTP/1.1" 200 12933
+[06/Oct/2023 13:37:52] "GET /static/images/items/6.jpg HTTP/1.1" 200 27089
+[06/Oct/2023 13:37:52] "GET /static/images/items/7.jpg HTTP/1.1" 200 26319
+[06/Oct/2023 13:37:52] "GET /static/images/items/8.jpg HTTP/1.1" 200 12010
+[06/Oct/2023 13:37:52] "GET /static/css/responsive.css HTTP/1.1" 200 1339
+[06/Oct/2023 13:37:52] "GET /static/fonts/fontawesome/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 74328
+[06/Oct/2023 13:37:52] "GET /static/fonts/fontawesome/webfonts/fa-brands-400.woff2 HTTP/1.1" 200 74656
+[06/Oct/2023 13:37:53] "GET /static/images/favicon.ico HTTP/1.1" 200 1150
