@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from customer.models import Customer
 # from .models import Customer
 # Create your views here.
 
@@ -40,10 +42,29 @@ def seller_login(request):
 
 
 def customer_signup(request):
-     
+    if request.method == 'POST':
+        f_name = request.POST['fname']
+        l_name = request.POST['lastname']
+        email = request.POST['email']
+        gender = request.POST['gender']
+        city = request.POST['city']
+        country = request.POST['country']
+        password = request.POST['password']
 
+        customer = Customer(
+            first_name = f_name,
+            last_name = l_name,
+            email = email,
+            gender = gender,
+            city = city,
+            country = country,
+            password = password
+        )
 
-    return render(request, 'customer/customer_signup.html',)
+        customer.save()
+        msg = 'REGISTERED SUCCESSFULL'
+
+    return render(request, 'customer/customer_signup.html', {'message':msg})
 
 
 def customer_login(request):
