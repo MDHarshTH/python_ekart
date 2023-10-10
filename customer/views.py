@@ -42,6 +42,9 @@ def seller_login(request):
 
 
 def customer_signup(request):
+
+    msg = ""
+
     if request.method == 'POST':
         f_name = request.POST['fname']
         l_name = request.POST['lastname']
@@ -64,7 +67,7 @@ def customer_signup(request):
         customer.save()
         msg = 'REGISTERED SUCCESSFULL'
 
-    return render(request, 'customer/customer_signup.html', {'message':msg})
+    return render(request, 'customer/customer_signup.html', {'message': msg})
 
 
 def customer_login(request):
