@@ -9,7 +9,8 @@ from customer.models import Customer, Seller
 
 
 def customer_home(request):
-    return render(request, 'customer/customer_home.html')
+    customer = Customer.objects.get(id = request.session['customer'])
+    return render(request, 'customer/customer_home.html',{'customer_details':customer})
 
 
 def store(request):
@@ -148,6 +149,8 @@ def customer_login(request):
     else:
         msg = 'Incorrect Password or Username'
     return render(request, 'customer/customer_login.html',{'message':msg})
+
+
 
 
 def forgot_password_customer(request):

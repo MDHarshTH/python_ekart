@@ -61,6 +61,6 @@ def seller_logout(request):
     del request.session['seller']
     request.session.flush()
 
-    return redirect('Seller:seller_home')
+    return redirect('customer:seller_login')
 
 
