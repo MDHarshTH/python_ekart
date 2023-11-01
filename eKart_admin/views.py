@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.core.mail import send_mail
 
 from customer.models import Seller
+from eKart_admin.models import Category
 
 # Create your views here.
 def admin_home(request):
@@ -13,7 +14,26 @@ def view_category(request):
     return render(request,'ekart_admin/view_category.html')
 
 def add_category(request):
-    return render(request,'ekart_admin/add_category.html')
+    message = ''
+    if request.method == 'POST':
+        category_name = request.POST['category_name']
+        discrip = request.POST['description']
+        category_image = request.FILES['category_image']
+        
+        category_exist = Category.objects.filter(category_name = category_name).exists()
+        if not category_exist:
+            category = Category (
+                category_name = category_name,
+                discription = discrip,
+                cover_picture = category_image
+            )
+
+            category.save()
+            message = 'Created'
+        else:
+            message = "Category Already Exist"
+
+    return render(request,'ekart_admin/add_category.html',{'message':message})
 
 def approve_seller(request, id):
     seller = Seller.objects.get(id = id)
