@@ -11,7 +11,8 @@ def admin_home(request):
     return render(request,'ekart_admin/admin_home.html')
 
 def view_category(request):
-    return render(request,'ekart_admin/view_category.html')
+    category_list = Category.objects.all()
+    return render(request,'ekart_admin/view_category.html',{'category_view':category_list})
 
 def add_category(request):
     message = ''
