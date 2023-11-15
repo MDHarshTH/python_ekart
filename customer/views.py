@@ -1,10 +1,11 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from random import randint
 from django.conf import settings
 from django.core.mail import send_mail
+from django.db.models import F
 
-from customer.models import Customer, Seller
-from seller.models import Product
+from customer.models import Cart, Customer
+from seller.models import Product, Seller
 # from .models import Customer
 # Create your views here.
 
@@ -29,12 +30,59 @@ def store(request):
 
 
 def product_detail(request, id):
+    message = ''
     product = Product.objects.get(id = id)
-    return render(request, 'customer/product_detail.html',{'product':product})
+    customer = Customer.objects.get(id = request.session['customer'])
+    # product_exist = Cart.objects.filter(product_id = id).exists()
+    if request.method == 'POST':
+        if 'customer' in request.session:
+            cart = Cart(
+                customer = customer,
+                product = product,
+                price = product.price
+            )
+            cart.save()
+            message = "Added to cart"
+
+        else:
+            message = "Not added to cart"
+            return redirect('customer:login')
+        
+    try:
+        cart_item = get_object_or_404(Cart, customer = customer, product_id = id)
+        item_exist = True
+    except Exception as e:
+        item_exist = False
+    
+    context = {
+        'product':product,
+        'message':message,
+        'item_exist':item_exist
+    }
+
+
+
+    return render(request, 'customer/product_detail.html',context)
 
 
 def cart(request):
-    return render(request, 'customer/cart.html')
+    customer = Customer.objects.get(id = request.session['customer'])
+    cart = Cart.objects.filter(customer_id = customer.id).annotate(sub_total = F('quantity') * F('price'))
+    grand_total = 0
+    for item in cart:
+        grand_total += item.sub_total
+
+    context = {
+        'cart':cart,
+        'customer_details':customer, 
+        'grand_total':grand_total
+    }
+    return render(request, 'customer/cart.html',context)
+
+def  cart_remove(request, id):
+    item = Cart.objects.get(id = id)
+    item.delete()
+    return redirect('customer:cart')
 
 
 def place_order(request):
